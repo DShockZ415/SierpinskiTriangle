@@ -1,22 +1,34 @@
+int lul=10;
 public void setup()
 {
-  int z;
   size(500,500);
 }
 public void draw()
 {
-  sierpinski(0,500,1000);
+  sierpinski(0,500,500);
 }
+
 public void keyTyped()//optional
 {
   if(key=='a'||key=='A')
   {
-    len=len/2;
+    if(lul>2)
+    lul=lul/2;
+    else
+    lul=lul*1;
+  }
+  if(key=='d'||key=='D')
+  {
+    if(lul<500)
+    lul=lul*2;
+    else
+    lul=lul*1;
   }
 }
+
 public void sierpinski(int x, int y, int len) 
 {
-  if(len<=10)
+  if(len<=lul)
   {    
     triangle(x+(len/2),y-len,x,y,x+len,y);
   }
